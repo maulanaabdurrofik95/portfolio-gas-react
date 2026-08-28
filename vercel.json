@@ -6,11 +6,11 @@
     },
     {
       "source": "/api/portfolios",
-      "destination": "https://script.google.com/macros/s/AKfycbxx1jr54BQRloOSbvpCtqzKygUKl4LgE_vgbjay9IMrMxx6f5vMDr8QtGyqTxzw5Q5I6A/exec"
+      "destination": "https://script.google.com/macros/s/AKfycbxx1jr54BQRloOSbvpCtqzKygUKl4LgE_vgbjay9IMrMxx6f5vMDr8QtGyqTxzw5Q5I6A/exec?action=getPortfolios"
     },
     {
       "source": "/api/menus",
-      "destination": "https://script.google.com/macros/s/AKfycbxx1jr54BQRloOSbvpCtqzKygUKl4LgE_vgbjay9IMrMxx6f5vMDr8QtGyqTxzw5Q5I6A/exec"
+      "destination": "https://script.google.com/macros/s/AKfycbxx1jr54BQRloOSbvpCtqzKygUKl4LgE_vgbjay9IMrMxx6f5vMDr8QtGyqTxzw5Q5I6A/exec?action=getMenus"
     },
     {
       "source": "/(.*)",
