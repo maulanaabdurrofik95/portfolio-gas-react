@@ -61,10 +61,7 @@ function doPost(e) {
       return ContentService.createTextOutput(JSON.stringify(result))
         .setMimeType(ContentService.MimeType.JSON);
     }
-      const result = savePortfolio(payload.title, payload.category, payload.description, payload.imageBase64);
-      return ContentService.createTextOutput(JSON.stringify(result))
-        .setMimeType(ContentService.MimeType.JSON);
-    }
+
     
     if (action === 'saveMenus') {
       const result = saveMenus(payload.menus);
