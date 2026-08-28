@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/categories",
+      "destination": "https://script.google.com/macros/s/AKfycbxx1jr54BQRloOSbvpCtqzKygUKl4LgE_vgbjay9IMrMxx6f5vMDr8QtGyqTxzw5Q5I6A/exec?action=getCategories"
+    },
+    {
       "source": "/api/settings",
       "destination": "https://script.google.com/macros/s/AKfycbxx1jr54BQRloOSbvpCtqzKygUKl4LgE_vgbjay9IMrMxx6f5vMDr8QtGyqTxzw5Q5I6A/exec?action=settings"
     },
