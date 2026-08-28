@@ -44,6 +44,8 @@ app.post('/api/settings', (req, res) => {
 });
 
 // Mock data fallbacks to keep the app running if GAS isn't configured yet
+const fallbackCategories = ['Web & Otomasi', 'Algorithmic Trading', 'IoT & Hardware'];
+
 const fallbackPortfolios = [
   {
     id: 1,
@@ -81,6 +83,41 @@ const fallbackMenus = [
 ];
 
 // API Routes - Proxy to Google Apps Script
+
+app.get('/api/categories', async (req, res) => {
+  try {
+    const response = await fetch(`${GAS_URL}?action=getCategories`);
+    if (!response.ok) throw new Error('Failed to fetch from GAS');
+    const text = await response.text();
+    if (text.trim().startsWith('<')) {
+      return res.json(fallbackCategories);
+    }
+    const data = JSON.parse(text);
+    res.json(Array.isArray(data) ? data : fallbackCategories);
+  } catch (error) {
+    res.json(fallbackCategories);
+  }
+});
+
+app.post('/api/categories', async (req, res) => {
+  try {
+    const response = await fetch(GAS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
+        action: 'saveCategories',
+        categories: req.body.categories || req.body
+      })
+    });
+    const text = await response.text();
+    if (text.trim().startsWith('<')) throw new Error('GAS returned HTML (Not updated)');
+    const data = JSON.parse(text);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to save categories.' });
+  }
+});
+
 app.get('/api/portfolios', async (req, res) => {
   try {
     const response = await fetch(`${GAS_URL}?action=getPortfolios`);

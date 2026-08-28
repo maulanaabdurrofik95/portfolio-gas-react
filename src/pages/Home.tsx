@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Portfolio, Menu, CATEGORIES } from '../types';
+import { Portfolio, Menu } from '../types';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { Link } from 'react-router-dom';
 import { ExternalLink, X, Menu as MenuIcon } from 'lucide-react';
@@ -20,7 +20,7 @@ const getValidImageUrl = (url: string) => {
 };
 
 export function Home() {
-  const { portfolios, menus, settings, loading, fetchAll } = useGAS();
+  const { portfolios, menus, categories, settings, loading, fetchAll } = useGAS();
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedPortfolio, setSelectedPortfolio] = useState<Portfolio | null>(null);
   const [activeMenu, setActiveMenu] = useState<Menu | null>(null);
@@ -202,7 +202,7 @@ export function Home() {
         <header className="h-auto md:h-24 border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-6 md:py-0 shrink-0 gap-6 md:gap-0 bg-white/40 dark:bg-slate-950/30 backdrop-blur-3xl z-10">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 md:gap-3 w-full md:w-auto">
             {(!activeMenu || activeMenu.type === 'portfolio') ? (
-              CATEGORIES.map((cat) => (
+              ['All', ...categories].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}

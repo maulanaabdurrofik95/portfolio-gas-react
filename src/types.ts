@@ -16,9 +16,4 @@ export interface Menu {
   type?: 'portfolio' | 'custom';
 }
 
-export const CATEGORIES = [
-  'All',
-  'Web & Otomasi',
-  'Algorithmic Trading',
-  'IoT & Hardware'
-];
+
