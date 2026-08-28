@@ -150,7 +150,7 @@ app.post('/api/menus', async (req, res) => {
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         action: 'saveMenus',
-        menus: req.body
+        menus: req.body.menus ? req.body.menus : req.body
       })
     });
     const text = await response.text();
