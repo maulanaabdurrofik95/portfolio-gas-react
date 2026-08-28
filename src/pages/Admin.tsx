@@ -16,7 +16,7 @@ export function Admin() {
 
   // Form State
   const [title, setTitle] = useState('');
-  const [category, setCategory] = useState(CATEGORIES[1]); // Default to first actual category
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [imageBase64, setImageBase64] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -491,7 +491,7 @@ export function Admin() {
                   onChange={(e) => setCategory(e.target.value)}
                   className="w-full p-4 border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 appearance-none font-medium transition-all"
                 >
-                  {CATEGORIES.filter(c => c !== 'All').map(cat => (
+                  {categories.map(cat => (
                     <option key={cat} value={cat}>{cat}</option>
                   ))}
                 </select>
