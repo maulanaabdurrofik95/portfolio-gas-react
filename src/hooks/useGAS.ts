@@ -113,7 +113,7 @@ export function useGAS() {
         fetch('/api/portfolios', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, category, description, imageBase64 })
+          body: JSON.stringify({ action: 'savePortfolio', title, category, description, imageBase64 })
         })
           .then(async res => {
             const data = await res.json().catch(() => ({}));
@@ -150,7 +150,7 @@ export function useGAS() {
         fetch('/api/menus', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newMenus)
+          body: JSON.stringify({ action: 'saveMenus', menus: newMenus })
         })
           .then(async res => {
             const data = await res.json().catch(() => ({}));
